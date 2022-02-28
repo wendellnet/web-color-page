@@ -33,3 +33,12 @@ kubectl get applications web-color -n argocd -o yaml > application.yaml
 kubectl apply -f .\application.yaml
 
 # configurando em ambiente diferente
+reconfigurar o application.yaml com dois manifests
+subir no git
+    git add .
+    git commit -am "adicionando dois manifestos"
+    git push origin main
+kubectl apply -f .\application.yaml
+kubectl port-forward svc/webcolor 8081:80 -n web-color-homolog
+kubectl port-forward svc/webcolor 8082:80 -n web-color-prod
+
