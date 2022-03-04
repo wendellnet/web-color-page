@@ -25,7 +25,7 @@
     kubectl create namespace argocd
     kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
     kubectl get all -n argocd
-    kubectl port-forward service/argocd-server 8080:80 -m argocd
+    kubectl port-forward service/argocd-server 8080:80 -n argocd
 
     comando para recuperar a senha do ARGO CD, utilizar um decode base 64
     kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
